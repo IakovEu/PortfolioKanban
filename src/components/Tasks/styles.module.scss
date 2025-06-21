@@ -3,10 +3,12 @@
 	max-height: 538px;
 	background-color: #ebecf0;
 	border-radius: 10px;
-	padding: 12px 0 8px 12px;
+	padding: 12px 9px 8px 12px;
 	font-size: 18px;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	height: -webkit-fit-content;
+	height: -moz-fit-content;
 	height: fit-content;
 
 	.title {
@@ -26,14 +28,15 @@
 		flex-direction: column;
 		gap: 15px;
 		overflow-y: auto;
+		overflow-x: hidden;
 		max-height: 430px;
-		padding-right: 9px;
 		margin-bottom: 17px;
 
 		& > * {
 			background-color: #ffffff;
 			border-radius: 5px;
 			padding: 7px 9px 7px 8px;
+			overflow-wrap: break-word;
 		}
 
 		.input {
@@ -65,7 +68,59 @@
 		}
 	}
 
+	.addMenu {
+		position: relative;
+		text-align: end;
+		background-color: #ffffff;
+		border-radius: 5px;
+		padding: 7px 9px 7px 8px;
+		overflow-wrap: break-word;
+
+		.addList {
+			background-color: transparent;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+
+			& > * {
+				width: 18px;
+				height: 12.5px;
+			}
+		}
+
+		.menu {
+			width: 261px;
+			position: absolute;
+			top: 38px;
+			left: 0;
+			text-align: start;
+			background-color: #ffffff;
+			border-radius: 5px;
+
+			& > * {
+				padding: 10px 10px 10px 7px;
+				overflow-wrap: break-word;
+				cursor: pointer;
+
+				&:hover {
+					background-color: #dedede;
+				}
+			}
+		}
+
+		.menu > *:last-child {
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+
+		.menu > *:first-child {
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+	}
+
 	.addBtn {
+		margin-top: 5px;
 		font-size: 18px;
 		color: #5e6c84;
 		font-family: 'Roboto';
@@ -85,10 +140,10 @@
 		}
 	}
 
-	.submitBtn{
+	.submitBtn {
 		&:hover {
 			color: #ffffff;
-			background-color: #0079BF;
+			background-color: #0079bf;
 		}
 	}
 }

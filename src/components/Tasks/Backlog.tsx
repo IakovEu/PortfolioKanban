@@ -1,26 +1,31 @@
 import { MyContext } from '../../others/context';
+import { TaskProps } from '../../others/types';
 import st from './styles.module.scss';
-import { ReactNode, useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef } from 'react';
 
-interface TaskBlockProps {
-	point?: ReactNode;
-}
-
-export const Backlog = ({ point }: TaskBlockProps) => {
+export const Backlog = ({ point }: TaskProps) => {
 	// Для изменение состояния даты
 	const { dat, setDat } = useContext(MyContext);
 
 	// Отслеживание клика на кнопку, показать / скрыть инпут
-	const [input, setInput] = useState(false);
+	const [isInputVisible, setisInputVisible] = useState<boolean>(false);
 
 	// Отслеживание значения инпута
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	// Обновляем дату, записываем обновленное в LS
+	// Обновляем дату, записываем обновленное в LS, обновляем бэклог
 	const addBacklog = () => {
-		setInput((prev) => !prev);
+		setisInputVisible((prev) => !prev);
 
-		if (inputRef.current?.value) {
+		let uniqueName = true; // не даст ввести одинаковое название
+
+		dat![0].issues.forEach((el) => {
+			if (el.name === inputRef.current?.value) {
+				uniqueName = false;
+			}
+		});
+
+		if (inputRef.current?.value && uniqueName) {
 			const updatedDat = dat ? [...dat] : [];
 			const backlogItem = { ...updatedDat[0] };
 
@@ -33,7 +38,6 @@ export const Backlog = ({ point }: TaskBlockProps) => {
 			updatedDat[0] = backlogItem;
 
 			localStorage.setItem('data', JSON.stringify(updatedDat));
-
 			setDat(updatedDat);
 		}
 	};
@@ -43,18 +47,16 @@ export const Backlog = ({ point }: TaskBlockProps) => {
 			<h2 className={st.title}>Backlog</h2>
 			<div className={st.notes}>
 				{point}
-				{input && (
+				{isInputVisible && (
 					<div>
 						<input ref={inputRef} type="text" className={st.input}></input>
 					</div>
 				)}
 			</div>
 			<button
-				className={!input ? st.addBtn : `${st.addBtn} ${st.submitBtn}`}
-				onClick={() => {
-					addBacklog();
-				}}>
-				{!input ? (
+				className={!isInputVisible ? st.addBtn : `${st.addBtn} ${st.submitBtn}`}
+				onClick={addBacklog}>
+				{!isInputVisible ? (
 					<>
 						<span className={st.innerPlus}>+</span>&nbsp;
 						<span>Add card</span>
