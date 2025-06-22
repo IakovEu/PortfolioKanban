@@ -21,7 +21,10 @@ function App() {
 			<div className={st.layout}>
 				<Header />
 				<Content />
-				<Footer />
+				<Footer
+					active={data ? data[0].issues.length : 0}
+					finished={data ? data[3].issues.length : 0}
+				/>
 			</div>
 		</MyContext.Provider>
 	);

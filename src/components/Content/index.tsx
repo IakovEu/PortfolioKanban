@@ -1,12 +1,17 @@
 import st from './styles.module.scss';
 import { Backlog } from '../Tasks/Backlog';
 import { Task } from '../Tasks/OtherTasks';
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { initialData } from '../../others/initialLocalStorage';
 import { MyContext } from '../../others/context';
 
 export const Content = () => {
 	const { dat, setDat } = useContext(MyContext);
+
+	// Отслеживание клика на кнопку, показать / скрыть выпадающее меню у Ready, inProgress и Finished
+	const [isReadyMenuVisible, setIsReadyMenuVisible] = useState(false);
+	const [isProgMenuVisible, setIsProgMenuVisible] = useState(false);
+	const [isFinMenuVisible, setIsFinMenuVisible] = useState(false);
 
 	// Заполняю LS и дату
 	useEffect(() => {
@@ -16,6 +21,7 @@ export const Content = () => {
 		} else {
 			setDat(JSON.parse(localStorage.getItem('data')!));
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	// Заполняю пункты
@@ -53,6 +59,9 @@ export const Content = () => {
 
 		localStorage.setItem('data', JSON.stringify(updatedDat));
 		setDat(updatedDat);
+		N === 0 && setIsReadyMenuVisible(false);
+		N === 1 && setIsProgMenuVisible(false);
+		N === 2 && setIsFinMenuVisible(false);
 	};
 
 	// Backlog вывел отдельно, чтобы аккуратнее внутри выглядело, тк он немного отличается
@@ -63,16 +72,31 @@ export const Content = () => {
 				point={dat && fillPoints(1)}
 				variants={dat && fillVariants(0)}
 				title="Ready"
+				disabled={dat ? dat[0].issues.length === 0 : true}
+				visibility={isReadyMenuVisible}
+				setVisibiblity={() => {
+					setIsReadyMenuVisible((prev) => !prev);
+				}}
 			/>
 			<Task
 				point={dat && fillPoints(2)}
 				variants={dat && fillVariants(1)}
 				title="In progress"
+				disabled={dat ? dat[1].issues.length === 0 : true}
+				visibility={isProgMenuVisible}
+				setVisibiblity={() => {
+					setIsProgMenuVisible((prev) => !prev);
+				}}
 			/>
 			<Task
 				point={dat && fillPoints(3)}
 				variants={dat && fillVariants(2)}
 				title="Finished"
+				disabled={dat ? dat[2].issues.length === 0 : true}
+				visibility={isFinMenuVisible}
+				setVisibiblity={() => {
+					setIsFinMenuVisible((prev) => !prev);
+				}}
 			/>
 		</div>
 	);

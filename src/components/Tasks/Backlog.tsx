@@ -1,9 +1,9 @@
 import { MyContext } from '../../others/context';
-import { TaskProps } from '../../others/types';
+import { BacklogProps } from '../../others/types';
 import st from './styles.module.scss';
 import { useState, useContext, useRef } from 'react';
 
-export const Backlog = ({ point }: TaskProps) => {
+export const Backlog = ({ point }: BacklogProps) => {
 	// Для изменение состояния даты
 	const { dat, setDat } = useContext(MyContext);
 
@@ -19,10 +19,12 @@ export const Backlog = ({ point }: TaskProps) => {
 
 		let uniqueName = true; // не даст ввести одинаковое название
 
-		dat![0].issues.forEach((el) => {
-			if (el.name === inputRef.current?.value) {
-				uniqueName = false;
-			}
+		dat!.forEach((elem) => {
+			elem.issues.forEach((el) => {
+				if (el.name === inputRef.current?.value) {
+					uniqueName = false;
+				}
+			});
 		});
 
 		if (inputRef.current?.value && uniqueName) {

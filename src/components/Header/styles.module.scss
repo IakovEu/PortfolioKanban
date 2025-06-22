@@ -80,7 +80,9 @@
 			background-color: #ffffff;
 			border-radius: 5px;
 			text-align: left;
-
+			-webkit-box-shadow: 0 0 10px #2196f3;
+			box-shadow: 0 0 10px #2196f3;
+			
 			.profile,
 			.logOut {
 				font-family: 'Roboto';

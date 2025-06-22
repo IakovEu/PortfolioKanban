@@ -4,7 +4,6 @@ import { LocalS } from './types';
 type descr = {
 	dat: LocalS[] | null;
 	setDat: (param: LocalS[] | null) => void;
-
 };
 
 const pattern: descr = {

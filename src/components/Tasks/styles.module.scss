@@ -138,6 +138,11 @@
 		&:hover {
 			background-color: #ffffff;
 		}
+
+		&:disabled:hover {
+			cursor: default;
+			background-color: transparent;
+		}
 	}
 
 	.submitBtn {

@@ -4,18 +4,17 @@ import { useState, useEffect, useRef } from 'react';
 export const Header = () => {
 	const [isAvatarOpen, setIsAvatarOpen] = useState<boolean>(false);
 	const openRef = useRef<HTMLButtonElement | null>(null);
-	
+
 	// Закрытие окна аватара при клике на любую область кроме блока аватара
 	const handleClickOutside = (event: MouseEvent): void => {
 		if (openRef.current && !openRef.current.contains(event.target as Node)) {
 			setIsAvatarOpen(false);
 		}
 	};
-	// Обработчик клика на область 
+	// Обработчик клика на область
 	useEffect(() => {
-		if (isAvatarOpen) {
-			document.addEventListener('click', handleClickOutside);
-		}
+		isAvatarOpen && document.addEventListener('click', handleClickOutside);
+
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
 		};
