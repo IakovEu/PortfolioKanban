@@ -37,6 +37,11 @@
 			border-radius: 5px;
 			padding: 7px 9px 7px 8px;
 			overflow-wrap: break-word;
+			cursor: pointer;
+
+			&:active {
+				background-color: #0079bf;
+			}
 		}
 
 		.input {

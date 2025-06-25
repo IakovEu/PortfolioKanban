@@ -14,25 +14,28 @@ export const Backlog = ({ point }: BacklogProps) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	// Обновляем дату, записываем обновленное в LS, обновляем бэклог
-	const addBacklog = () => {
+	const addBacklog = (): void => {
 		setisInputVisible((prev) => !prev);
 
+		const idCollection: number[] = []; // собирает id, чтобы не было одинаковых
 		let uniqueName = true; // не даст ввести одинаковое название
 
-		dat!.forEach((elem) => {
-			elem.issues.forEach((el) => {
-				if (el.name === inputRef.current?.value) {
-					uniqueName = false;
-				}
+		dat &&
+			dat.forEach((elem) => {
+				elem.issues.forEach((el) => {
+					el.name === inputRef.current?.value && (uniqueName = false);
+					idCollection.push(el.id);
+				});
 			});
-		});
+
+		const id = idCollection.sort((a, b) => b - a)[0] ?? 0;
 
 		if (inputRef.current?.value && uniqueName) {
 			const updatedDat = dat ? [...dat] : [];
 			const backlogItem = { ...updatedDat[0] };
 
 			backlogItem.issues.push({
-				id: 1,
+				id: id + 1,
 				name: inputRef.current.value,
 				description: '',
 			});

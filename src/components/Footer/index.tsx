@@ -3,7 +3,7 @@ import { FooterProps } from '../../others/types';
 
 export const Footer = ({ active, finished }: FooterProps) => {
 	return (
-		<div className={st.footer}>
+		<footer className={st.footer}>
 			<div className={st.container}>
 				<div className={st.tasks}>
 					<div>Active tasks: {active}</div>
@@ -11,6 +11,6 @@ export const Footer = ({ active, finished }: FooterProps) => {
 				</div>
 				<div>Kanban board by Iakov, &nbsp; {new Date().getFullYear()}</div>
 			</div>
-		</div>
+		</footer>
 	);
 };

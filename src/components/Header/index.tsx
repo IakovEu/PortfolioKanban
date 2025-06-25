@@ -21,7 +21,7 @@ export const Header = () => {
 	}, [isAvatarOpen]);
 
 	return (
-		<div className={st.header}>
+		<header className={st.header}>
 			<div className={st.container}>
 				<h1 className={st.title}>Awesome Kanban Board</h1>
 				<button
@@ -45,6 +45,6 @@ export const Header = () => {
 					</div>
 				)}
 			</div>
-		</div>
+		</header>
 	);
 };

@@ -1,0 +1,42 @@
+.container {
+	max-width: 1181px;
+	height: 548px;
+	margin: 22px auto 20px;
+	background-color: #ffffff;
+	border-radius: 5px;
+
+	.top {
+		padding: 22px 23px 35px 28px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.title {
+			font-size: 24px;
+			margin: 0;
+			font-weight: 400;
+		}
+
+		.closeBtn {
+			padding: 0;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			font-size: 30px;
+
+			&:active {
+				color: #0079bf;
+			}
+		}
+	}
+
+	.textarea {
+        height: auto;
+		width: 621px;
+		resize: none;
+		margin-left: 30px;
+		font-size: 18px;
+		font-family: 'Roboto';
+		text-transform: capitalize;
+	}
+}
