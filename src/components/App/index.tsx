@@ -7,6 +7,7 @@ import { LocalS } from '../../others/types';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TaskDescription } from '../TaskDescription';
+import { NotFound } from '../NotFound';
 
 function App() {
 	// Отслеживание состояния объекта
@@ -20,10 +21,10 @@ function App() {
 					setData(param);
 				},
 			}}>
-			<BrowserRouter>
+			<BrowserRouter basename="/PortfolioKanban">
 				<Routes>
 					<Route
-						path="/PortfolioKanban/"
+						path="/"
 						element={
 							<div className={st.layout}>
 								<Header />
@@ -36,7 +37,7 @@ function App() {
 						}
 					/>
 					<Route
-						path="/PortfolioKanban/tasks/:id"
+						path="tasks/:id"
 						element={
 							<div className={st.layout}>
 								<Header />
@@ -48,6 +49,7 @@ function App() {
 							</div>
 						}
 					/>
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
 		</MyContext.Provider>
