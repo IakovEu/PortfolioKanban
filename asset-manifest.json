@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PortfolioKanban/static/css/main.1446c39e.css",
-    "main.js": "/PortfolioKanban/static/js/main.333222ad.js",
+    "main.js": "/PortfolioKanban/static/js/main.266ab3cd.js",
     "static/js/453.f0f88b0d.chunk.js": "/PortfolioKanban/static/js/453.f0f88b0d.chunk.js",
     "static/media/Roboto-VariableFont_wdth_wght.woff": "/PortfolioKanban/static/media/Roboto-VariableFont_wdth_wght.156f9ff32e86ea4c83b2.woff",
     "static/media/avatar.svg": "/PortfolioKanban/static/media/avatar.516bf9aad324b50b9cce.svg",
@@ -9,11 +9,11 @@
     "static/media/arrow.svg": "/PortfolioKanban/static/media/arrow.9bf3f8711ba85a40967c.svg",
     "static/media/arrow2.svg": "/PortfolioKanban/static/media/arrow2.157e19ef20c6da73ccf75044dffd1777.svg",
     "main.1446c39e.css.map": "/PortfolioKanban/static/css/main.1446c39e.css.map",
-    "main.333222ad.js.map": "/PortfolioKanban/static/js/main.333222ad.js.map",
+    "main.266ab3cd.js.map": "/PortfolioKanban/static/js/main.266ab3cd.js.map",
     "453.f0f88b0d.chunk.js.map": "/PortfolioKanban/static/js/453.f0f88b0d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1446c39e.css",
-    "static/js/main.333222ad.js"
+    "static/js/main.266ab3cd.js"
   ]
 }
