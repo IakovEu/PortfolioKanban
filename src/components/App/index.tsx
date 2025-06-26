@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { TaskDescription } from '../TaskDescription';
 import { NotFound } from '../NotFound';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 	// Отслеживание состояния объекта
@@ -51,6 +52,18 @@ function App() {
 					/>
 					<Route path="*" element={<NotFound />} />
 				</Routes>
+				<ToastContainer
+					position="bottom-right"
+					autoClose={5000}
+					hideProgressBar
+					newestOnTop={false}
+					closeOnClick={false}
+					rtl={false}
+					pauseOnFocusLoss={false}
+					draggable={false}
+					pauseOnHover={false}
+					theme="light"
+				/>
 			</BrowserRouter>
 		</MyContext.Provider>
 	);

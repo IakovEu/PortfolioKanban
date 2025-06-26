@@ -2,7 +2,7 @@
 	"name": "kanban-board",
 	"version": "0.1.0",
 	"private": true,
-  "homepage": "https://IakovEu.github.io/PortfolioKanban",
+	"homepage": "https://IakovEu.github.io/PortfolioKanban",
 	"dependencies": {
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/jest-dom": "^6.6.3",
@@ -47,6 +47,7 @@
 	},
 	"devDependencies": {
 		"gh-pages": "^6.3.0",
+		"react-toastify": "^11.0.5",
 		"sass": "^1.89.2"
 	}
 }

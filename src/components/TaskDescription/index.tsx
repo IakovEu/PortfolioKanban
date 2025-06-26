@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { LocalS } from '../../others/types';
 import st from './styles.module.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export const TaskDescription = () => {
 	// Общие данные
@@ -49,6 +50,16 @@ export const TaskDescription = () => {
 			updatedData[block].issues = updatedBlock;
 			localStorage.setItem('data', JSON.stringify(updatedData));
 		}
+		toast('Description saved', {
+			position: 'bottom-right',
+			autoClose: 1000,
+			hideProgressBar: true,
+			closeOnClick: false,
+			pauseOnHover: false,
+			draggable: false,
+			progress: undefined,
+			theme: 'light',
+		});
 		navigate(`/`);
 	};
 
@@ -68,7 +79,7 @@ export const TaskDescription = () => {
 				ref={areaRef}
 				className={st.textarea}
 				value={text}
-				id='123'
+				id="123"
 				onChange={(e) => {
 					setText(e.target.value);
 				}}
