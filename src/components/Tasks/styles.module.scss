@@ -177,3 +177,13 @@
 		}
 	}
 }
+
+@media (max-width: 500px) {
+	.block {
+		.notes {
+			.input {
+				width: 95%;
+			}
+		}
+	}
+}
