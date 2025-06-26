@@ -6,7 +6,7 @@ import { useState, useContext, useRef } from 'react';
 export const Backlog = ({ point }: BacklogProps) => {
 	// Для изменение состояния даты
 	const { dat, setDat } = useContext(MyContext);
-
+	
 	// Отслеживание клика на кнопку, показать / скрыть инпут
 	const [isInputVisible, setisInputVisible] = useState<boolean>(false);
 

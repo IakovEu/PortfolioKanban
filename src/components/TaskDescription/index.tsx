@@ -4,7 +4,7 @@ import st from './styles.module.scss';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export const TaskDescription = () => {
-    // Общие данные
+	// Общие данные
 	const data: LocalS[] = JSON.parse(localStorage.getItem('data')!);
 	// Для перехода на главную
 	const navigate = useNavigate();
@@ -21,7 +21,7 @@ export const TaskDescription = () => {
 	useEffect(() => {
 		const issue = data[block].issues.find((issue) => issue.id === elementId);
 		setText(issue?.description || '');
-
+		areaRef.current?.focus();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -40,7 +40,7 @@ export const TaskDescription = () => {
 
 			const updatedBlock = updatedData[block].issues.map((el) => {
 				if (areaRef.current && el.id === elementId) {
-					el.description = areaRef.current?.value;
+					el.description = areaRef.current?.value.trim();
 					return el;
 				}
 				return el;
@@ -68,6 +68,7 @@ export const TaskDescription = () => {
 				ref={areaRef}
 				className={st.textarea}
 				value={text}
+				id='123'
 				onChange={(e) => {
 					setText(e.target.value);
 				}}

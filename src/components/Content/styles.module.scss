@@ -5,4 +5,19 @@
 	gap: 24px;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	background-color: #0079bf;
+}
+
+@media (max-width: 1250px) {
+	.container {
+		margin: 0 auto;
+		padding: 20px 10px 190px;
+		justify-content: space-evenly;
+	}
+}
+
+@media (max-width: 625px) {
+	.container {
+		padding-top: 100px;
+	}
 }

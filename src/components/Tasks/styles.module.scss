@@ -1,9 +1,8 @@
 .block {
 	width: 282px;
-	max-height: 538px;
 	background-color: #ebecf0;
 	border-radius: 10px;
-	padding: 12px 9px 8px 12px;
+	padding: 12px 0 8px 12px;
 	font-size: 18px;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -19,6 +18,7 @@
 	}
 
 	.notes {
+		padding-right: 12px;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -29,7 +29,7 @@
 		gap: 15px;
 		overflow-y: auto;
 		overflow-x: hidden;
-		max-height: 430px;
+		max-height: 330px;
 		margin-bottom: 17px;
 
 		& > * {
@@ -80,6 +80,7 @@
 		border-radius: 5px;
 		padding: 7px 9px 7px 8px;
 		overflow-wrap: break-word;
+		margin-right: 12px;
 
 		.addList {
 			background-color: transparent;
@@ -94,7 +95,9 @@
 		}
 
 		.menu {
-			width: 261px;
+			max-height: 163px;
+			overflow-y: auto;
+			width: 258px;
 			position: absolute;
 			top: 38px;
 			left: 0;
@@ -115,12 +118,29 @@
 
 		.menu > *:last-child {
 			border-bottom-left-radius: 5px;
-			border-bottom-right-radius: 5px;
 		}
 
 		.menu > *:first-child {
 			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+		}
+
+		.menu::-webkit-scrollbar {
+			width: 6px;
+			background-color: #ffffff;
+			border-radius: 30px;
+		}
+
+		.menu::-webkit-scrollbar-thumb {
+			background-color: #cbcbcb;
+			border-radius: 30px;
+			cursor: pointer;
+		}
+
+		@supports (-moz-appearance: none) {
+			.menu {
+				scrollbar-width: thin;
+				scrollbar-color: #cbcbcb #ffffff;
+			}
 		}
 	}
 

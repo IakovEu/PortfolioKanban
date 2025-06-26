@@ -82,7 +82,7 @@
 			text-align: left;
 			-webkit-box-shadow: 0 0 10px #2196f3;
 			box-shadow: 0 0 10px #2196f3;
-			
+
 			.profile,
 			.logOut {
 				font-family: 'Roboto';
@@ -101,6 +101,28 @@
 				background-color: #ffffff;
 				rotate: 45deg;
 				margin: -5.5px 0 0 90px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1250px) {
+	.header {
+		.container {
+			padding: 0px 10px;
+		}
+	}
+}
+
+@media (max-width: 625px) {
+	.header {
+		background-color: transparent;
+
+		.container {
+			justify-content: end;
+
+			.title{
+				display: none;
 			}
 		}
 	}
