@@ -23,7 +23,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route
-						path="/"
+						path="/PortfolioKanban/"
 						element={
 							<div className={st.layout}>
 								<Header />
@@ -36,7 +36,7 @@ function App() {
 						}
 					/>
 					<Route
-						path="/tasks/:id"
+						path="/PortfolioKanban/tasks/:id"
 						element={
 							<div className={st.layout}>
 								<Header />

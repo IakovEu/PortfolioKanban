@@ -32,7 +32,7 @@ export const Content = () => {
 					<div
 						key={ind}
 						onClick={() => {
-							navigate(`/tasks/${num}-${el.id}`);
+							navigate(`/PortfolioKanban/tasks/${num}-${el.id}`);
 						}}>
 						{el.name}
 					</div>

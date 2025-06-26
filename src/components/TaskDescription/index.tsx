@@ -49,7 +49,7 @@ export const TaskDescription = () => {
 			updatedData[block].issues = updatedBlock;
 			localStorage.setItem('data', JSON.stringify(updatedData));
 		}
-		navigate(`/`);
+		navigate(`/PortfolioKanban/`);
 	};
 
 	return (
