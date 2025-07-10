@@ -1,5 +1,6 @@
 # Kanban board
 <img width="1785" height="915" alt="канбан-основная" src="https://github.com/user-attachments/assets/172d8952-2617-4792-94cf-bf640b0f3551" />
+<img width="1726" height="916" alt="канбан-описание" src="https://github.com/user-attachments/assets/4193addc-7a1b-46dd-916f-f3469d906d55" />
 
 - You can check my react app on github Pages (https://iakoveu.github.io/PortfolioKanban/)
 ## What i used
