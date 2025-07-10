@@ -2,7 +2,7 @@
 - You can check my react app on github Pages (https://iakoveu.github.io/PortfolioKanban/)
 ## What i used
 - **React (create-react-app)**
-- - **TS**
+- **TS**
 - **SASS(SCSS)**
 - **React router**
 - **React tostify**
